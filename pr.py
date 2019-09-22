@@ -52,8 +52,34 @@ def youtube_search(options):
                     favoriteCount = video_result["statistics"]["favoriteCount"]
                     
             csvWriter.writerow([title,videoId,viewCount,likeCount,dislikeCount,commentCount,favoriteCount])
+           
 
     csvFile.close()
+    l=[];
+	for i in range(0,10):
+		l.append(random.randrange(2,52,1))
+	l.sort()
+	m=[]
+	csvFile=open("video_result.csv",'r+');
+	read=csv.reader(csvFile)
+	write=csv.writer(csvFile)
+	i=0
+	j=0
+	csvn=open('modified_file.csv','w+')
+	
+	writer=csv.writer(csvn)
+	writer.writerow(["title","videoId","viewCount","likeCount","dislikeCount","commentCount","favoriteCount","viewnotviewed"])
+	for row in read:
+		if j==l[i]:
+			row[7]=1
+			
+			writer.writerow(row)
+			i=i+1
+		j=j+1
+	csvn.close()
+
+	csvFile.close()
+		
   
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Search on YouTube')
