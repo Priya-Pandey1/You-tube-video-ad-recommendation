@@ -102,7 +102,7 @@ mongo.connect(url,function(err,client){
 "</style>";
 		for (var i = 0; i < len; i++) {
 			
-			console.log(resultArray[i].thumbnaillink);
+			
 			txt += "<div class='card'>" + "<div class='image'>"+
    "<img src="+resultArray[i].thumbnaillink+">"+
 "</div>"+
@@ -110,7 +110,7 @@ mongo.connect(url,function(err,client){
  "<h1>"+resultArray[i].title+"</h1>"+
 "</div>"+
 "<div class='des'>"+
- "<a href='https://www.youtube.com/watch?v=resultArray[i].videoId'>"+"WATCH VIDEO"+"</a>"+
+"<a href = https://www.youtube.com/watch?v="+resultArray[i].videoId+">"+"WATCH VIDEO"+"</a>"+
 "</div>"+
 "</div>";
 			//txt += resultArray[i]._id;
