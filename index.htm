@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>YouTube Ad Recommendation System</title>
+  <script src="https://kit.fontawesome.com/4930127cae.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .header-home{
+      background: url(bg.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      /*background-image: -webkit-linear-gradient(145deg,#faa61f 0%,#ed1847 100%);*/
+      position: relative;
+      padding-top: 185px;
+      padding-bottom: 180px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .col-header-text{
+      color: white;
+    }
+    .col-header-text h1{
+      font-size: 60px;
+      line-height: 70px;
+      letter-spacing: 0.05px;
+      color: white;
+    }
+    .col-header-text h1 span{
+      font-weight: 300;
+    }
+    .col-header-text p{
+      font-size: 16px;
+      line-height: 30px;
+      margin: 25px 0 54px;
+      text-align: justify;
+    }
+    .col-header-img{
+      position: relative;
+    }
+    .col-header-img img{
+      position: absolute;
+    }
+    .col-header-img img.img-header-lg{
+      right: -56px;
+      top: -73px;
+      z-index: 20;
+    }
+    .col-header-img img.img-header-sm{
+      right: 62px;
+      top: 118px;
+      z-index: 20;
+    }
+    /*.banner_btn{
+      font-size: 14px;
+      line-height: 58px;
+      text-align: center;
+      font-family: tahoma;
+      font-weight: 700;
+      width: 220px;
+      height: 60px;
+      display: inline-block;
+      text-transform: uppercase;
+      border-radius: 50px;
+      border: 2px solid transparent;
+      transition: all 0.5s linear;
+      color: #272929;
+      background: white;
+      margin-right: 10px;
+    }
+    .banner_btn:hover{
+      text-decoration: none;
+    }*/
+    .social{
+      margin-top: 90px;
+    }
+    .social a{
+      color:white;
+      font-size: 20px;
+      margin-right: 10px;
+      margin-left: 20px;
+    }
+    .navbar{
+      padding: 8px 0;
+      border-bottom: none;
+      transition: all 0.3s ease-in-out;
+    }
+    .navbar ul li a{
+      float: right;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-size: 22px;
+      transition: all 0.3s ease-in-out;
+      background: transparent;
+    }
+    .navbar ul li a:hover, .navbar ul li a:focus{
+      color: deepskyblue;
+      background: none;
+    }
+    .navbar-toggle{
+      border: 1px solid white;
+      color: white;
+      transition: all 0.3s ease-in;
+    }  
+    .icon-bar{
+      color: white;
+      background-color: white;
+    }  
+    .navbar-toggle:hover{
+      background-color: #4CAF50;
+    }  
+    .navbar-inverse .navbar-collapse{
+      background-color: transparent;
+    }  
+    .navbar-inverse{
+      background-color: transparent;
+    }
+    .latest-news-area{
+      margin-top: 40px;
+    }
+    .latest-news-wrap{
+      box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+    }
+    .news-img{
+      position: relative;
+    }
+    .news-img:before{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      content: "";
+      opacity: 0;
+      transform: scale(.8);
+      transition: all 0.5s;
+    }
+    .latest-news-wrap:hover .news-img:before{
+      opacity: .5;
+      transform: scale(1);
+      
+    }
+    .deat{
+      background: #f89406 none repeat scroll 0 0;
+      height: 70px;
+      left: 0;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 70px;
+      padding: 2px;
+    }
+    .deat span{
+      display: block;
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+    }
+    .news-content{
+      padding: 20px;
+      margin-left: 3px;
+    }
+    .news-content a{
+      font-size: 14px;
+      background-color: #e0ad23;
+      padding: 10px 20px;
+      color: white;
+      transition: all 0.5s ease-in; 
+    }
+    .news-content a:hover{
+      font-size: 14px;
+      border: 1px solid#34495e;
+      border-top-right-radius: 20px;
+      background-color: transparent;
+      color: #34495e;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navi">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!--<a href="" class="navbar-brand">YOUTUBE AD RECOMMENDER</a>-->
+          
+      </div>
+      <div class="collapse navbar-collapse" id="navi">
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="">Home</a></li>
+            <li><a href="#service">Service</a></li>
+            <!--<li><a href="">Contact</a></li>-->
+            <li><a href="file:///C:/Users/user1/Desktop/YAR/css/about.htm">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section id="home" class="header-home">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-header-text lr-padding">
+          <h1>Bonjour à tous !!</h1>
+          <p>A B2B application, to segment YouTube videos on the basis of content, to optimize conversion rate of Ads.
+
+​YouTube has become the highest content holder. The prime revenue is Ads and the Ad industry will vouch for placing customized ads on content to improve conversion rate. If the Ad company knows, which video has potential of being popular, they will place non-skip-able ads on them from very beginning. This will also prevent us from seeing irrelevant ads. For eg., if you are watching a fitness related video, you will see an ad of protein shakes and not of Zomato.</p>
+          
+        </div>
+        <div class="col-sm-5 col-md-offset-2 col-md-3 col-header-image right-padding">
+          <!--<img src="slide4.png" class="img-header-lg" alt="">-->
+        </div>
+      </div>
+      <!--
+      <div class="social">
+        <a href=""><i class="fa fa-facebook"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""><i class="fa fa-instagram"></i></a>
+        <a href=""><i class="fa fa-youtube"></i></a>
+      </div>
+    -->
+    </div>
+  </section> 
+  <section class="latest-news-area" id="latest">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="section_title">
+            <div class="section_subtitle"></div>
+            <a name="service"><h2>Services for<strong> users</strong></h2></a>
+          </div>
+        </div>
+      </div>     
+    <br><br>    
+    <div class="row">
+      <div class="news-active">
+
+        <div class="col-md-4">
+          <div class="latest-news-wrap">
+            <div class="news-img">
+              <img src="slide2.png" class="img-responsive">
+              <div class="deat">
+                <span><h2>R</h2></span>
+              </div>
+            </div>
+            
+            <div class="news-content">
+              
+              <h2><center>Recommended</center></h2>
+              <p>
+                Just click the button below to go through all the recommended material for you.Here are all the videos which we predict the user wants to watch.So no need to search more just click here directly.
+              </p><br>
+              <a href="file:///C:/Users/user1/Desktop/static/recomm.html">Click here</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="latest-news-wrap">
+            <div class="news-img">
+              <img src="slide1.png" class="img-responsive">
+              <div class="deat">
+                <span><h2>T</h2></span>
+              </div>
+            </div>
+            <div class="news-content">
+              
+              <h2><center>Top 10</center></h2>
+              <p>
+                Here is what you really want!..The top 10 videos from the recommended for our users.So click the button below and watch all your favourite material filtered from the recommended which suits you best.
+              </p><br>
+              <a href="">Click here</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="latest-news-wrap">
+            <div class="news-img">
+              <img src="slide3.png" class="img-responsive">
+              <div class="deat">
+                <span><h2>H</h2></span>
+              </div>
+            </div>
+            <div class="news-content">
+              
+              <h2><center>History</center></h2>
+              <p>
+                Wanna go through what all you have watched till now?..The section contains contents from the history of yours.Just see what you want to access from which you have already gone through.
+              </p><br>
+              <a href="">Click here</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          
+        </div>
+      </div>
+    </div>    
+       
+    </div>  
+  </section>    
+      <br><br><br>
+       
+</body>
+</html>
